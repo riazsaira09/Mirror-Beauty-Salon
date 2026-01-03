@@ -19,11 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Side panel functions
 function openPanel() {
   document.getElementById("sidePanel").classList.add("open");
+  document.getElementById("overlay").classList.add("show");
 }
 
 function closePanel() {
   document.getElementById("sidePanel").classList.remove("open");
+  document.getElementById("overlay").classList.remove("show");
 }

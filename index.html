@@ -384,6 +384,21 @@ body {
     margin-bottom: 20px;
   }
 }
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* semi-transparent dark background */
+  display: none;              /* hidden by default */
+  z-index: 999;               /* sits behind the panel */
+}
+
+#overlay.show {
+  display: block;
+}
     
   </style>
 </head>
@@ -397,6 +412,8 @@ body {
     <li><a href="#contact">Contact Us</a></li>
   </ul>
 </div>
+<div id="overlay" onclick="closePanel()"></div>
+
   <header>
     <h1>Mirror Boutique & Beauty Salon</h1>
     <nav aria-label="Main navigation">
