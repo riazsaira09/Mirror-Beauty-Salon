@@ -201,6 +201,14 @@
   color: #333;
 }
 
+.menu-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
 @media (max-width: 768px) {
   nav ul {
     position: fixed;
@@ -258,14 +266,114 @@
   text-align: center;
 }
 
+#about .container div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  #about .container div {
+    flex-direction: column;
+    text-align: center;
+  }
+  #about img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  #about div {
+    text-align: left;
+  }
+}
+
+.about-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .about-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-flex img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  .about-flex div {
+    text-align: left;
+  }
+}
+
+#menu img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+#contact {
+  text-align: center;
+}
+
+#contact p, #contact h2, #contact h3 {
+  text-align: center;
+}
+#sidePanel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+#sidePanel.open {
+  transform: translateX(0);
+}
+
+#closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+#contact {
+  text-align: center;
+  padding: 40px;
+}
+#contact p, #contact h2, #contact h3 {
+  text-align: center;
+}
     
   </style>
 </head>
 <body>
+  <div id="sidePanel">
+  <button id="closeBtn" onclick="closePanel()">✖</button>
+  <!-- panel content here -->
+</div>
   <header>
     <h1>Mirror Boutique & Beauty Salon</h1>
     <nav aria-label="Main navigation">
-      <button class="close-menu" aria-label="Close navigation">✖</button>
+      
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About Us</a></li>
@@ -337,7 +445,7 @@
 
     <section id="about" class="container" aria-label="About us">
   <h2>About Us</h2>
-  <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:30px;padding:20px;max-width:1200px;margin:0 auto;">
+  <div class="about-flex">
     
     <!-- Photo -->
     <img src="facial3.jpg" alt="Facials" style="flex:1;border-radius:10px;max-width:400px;">
@@ -368,10 +476,10 @@
     <section id="menu" class="container" aria-label="Menu">
       <h2>The Menu</h2>
       <p>Looking for something specific? Here is the rundown of all our services and prices. Please contact us for more details.</p>
-      <img src="menu.jpg" alt="Service menu" style="display:block;margin:0 auto;max-width:600px;border-radius:10px;">
+      <img src="menu.jpg" alt="Service menu" class="menu-img">
     </section>
 
-    <section id="contact" class="container" style="text-align:center;padding:40px;" aria-label="Contact">
+    <section id="contact" class="container" aria-label="Contact">
   <h2>Contact Us</h2>
 
   <!-- Opening Hours -->

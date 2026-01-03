@@ -3,11 +3,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const navMenu = document.querySelector("nav ul");
   const closeBtn = document.querySelector(".close-menu");
 
-  toggle.addEventListener("click", () => {
-    navMenu.classList.add("show"); // always open
-  });
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      navMenu.classList.add("show");
+    });
+  }
 
-  closeBtn.addEventListener("click", () => {
-    navMenu.classList.remove("show"); // always close
-  });
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      navMenu.classList.remove("show");
+    });
+  }
 });
+
+// Side panel functions
+function openPanel() {
+  document.getElementById("sidePanel").classList.add("open");
+}
+function closePanel() {
+  document.getElementById("sidePanel").classList.remove("open");
+}
