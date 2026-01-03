@@ -1,22 +1,17 @@
+// Wait until the DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.querySelector(".menu-toggle");
-  const navMenu = document.querySelector("nav ul");
-  const closeBtn = document.querySelector(".close-menu");
+  const panel = document.getElementById("sidePanel");
   const panelLinks = document.querySelectorAll("#sidePanel a");
+  const closeBtn = document.getElementById("closeBtn");
 
-  // Mobile nav toggle
-  if (toggle) {
-    toggle.addEventListener("click", () => {
-      navMenu.classList.add("show");
-    });
-  }
+  // Close panel when ✖ button is clicked
   if (closeBtn) {
     closeBtn.addEventListener("click", () => {
-      navMenu.classList.remove("show");
+      closePanel();
     });
   }
 
-  // Close side panel when a link is clicked
+  // Close panel when any link inside it is clicked
   panelLinks.forEach(link => {
     link.addEventListener("click", () => {
       closePanel();
@@ -28,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function openPanel() {
   document.getElementById("sidePanel").classList.add("open");
 }
+
 function closePanel() {
   document.getElementById("sidePanel").classList.remove("open");
 }

@@ -371,6 +371,19 @@ body {
     color: #333;
   }
 }
+
+.about-img {
+  flex: 1;
+  border-radius: 10px;
+  max-width: 100%;   /* scales to screen width */
+  height: auto;
+}
+@media (max-width: 768px) {
+  .about-img {
+    width: 100%;     /* full width on mobile */
+    margin-bottom: 20px;
+  }
+}
     
   </style>
 </head>
@@ -462,7 +475,7 @@ body {
   <div class="about-flex">
     
     <!-- Photo -->
-    <img src="Facial3.jpg" alt="Salon" style="flex:1;border-radius:10px;max-width:400px;">
+    <img src="Facial3.jpg" alt="Salon" class="about-img">
     
     <!-- Text block -->
     <div style="flex:2;">
