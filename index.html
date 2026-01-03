@@ -192,14 +192,7 @@
       border-radius: 10px;
     }
 
-    .menu-toggle {
-  display: none;
-  font-size: 28px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333;
-}
+
 
 .menu-img {
   display: block;
@@ -207,56 +200,6 @@
   max-width: 100%;
   height: auto;
   border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    height: 100%;
-    width: 250px;
-    background: #f5f5dc;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    padding-top: 60px;
-    transition: right 0.3s ease;
-    margin: 0;
-    z-index: 1000;
-  }
-
-  nav ul.show {
-    right: 0;
-  }
-
-  .menu-toggle {
-    display: block;
-    position: relative;
-    z-index: 1001;
-  }
-
-  nav ul li {
-    margin: 20px 0;
-  }
-}
-.close-menu {
-  display: none;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333;
-  z-index: 1002;
-}
-
-@media (max-width: 768px) {
-  .close-menu {
-    display: block;
-  }
 }
 
 #about h3 {
@@ -319,32 +262,6 @@
 .menu-img {
   border-radius: 10px;
 }
-#sidePanel {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  background: #fff;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-}
-
-#sidePanel.open {
-  transform: translateX(0);
-}
-
-#closeBtn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -357,20 +274,7 @@ body {
 #contact p, #contact h2, #contact h3 {
   text-align: center;
 }
-.menu-toggle {
-  display: none;
-}
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-    font-size: 28px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #333;
-  }
-}
 
 .about-img {
   flex: 1;
@@ -385,34 +289,23 @@ body {
   }
 }
 
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4); /* semi-transparent dark background */
-  display: none;              /* hidden by default */
-  z-index: 999;               /* sits behind the panel */
+/* Default: desktop/laptop */
+header nav ul {
+  display: flex;
+  gap: 20px;
 }
 
-#overlay.show {
-  display: block;
+/* Mobile: hide nav completely */
+@media (max-width: 768px) {
+  header nav ul {
+    display: none;
+  }
 }
     
   </style>
 </head>
 <body>
- <div id="sidePanel">
-  <button id="closeBtn" onclick="closePanel()">✖</button>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About Us</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#contact">Contact Us</a></li>
-  </ul>
-</div>
-<div id="overlay" onclick="closePanel()"></div>
+
 
   <header>
     <h1>Mirror Boutique & Beauty Salon</h1>
@@ -425,8 +318,6 @@ body {
         <li><a href="#contact">Contact Us</a></li>
       </ul>
     </nav>
-
-   <button class="menu-toggle" aria-label="Toggle side panel" onclick="openPanel()">☰</button>
   </header>
 
   <main>
@@ -491,18 +382,15 @@ body {
   <h2>About Us</h2>
   <div class="about-flex">
     
-    <!-- Photo -->
     <img src="Facial3.jpg" alt="Salon" class="about-img">
-    
-    <!-- Text block -->
+  
     <div style="flex:2;">
-      <!-- Intro text -->
+    
       <p>
         Welcome to Mirror Boutique & Beauty Salon. We’re a small, women‑focused boutique run by a single proprietor. 
         Our services include henna art, Indian clothing, and custom tailoring. All appointments are handled personally, 
         and we serve women and girls exclusively.
       </p>
-<!-- Our Promise -->
       <h3 style="color:#000;margin-top:25px;">Our Promise</h3>
       <p><em>Beauty meets affordability.</em><br>
         From lashes, waxing, facials to beautiful henna designs, every service is priced to be kind to your wallet 
