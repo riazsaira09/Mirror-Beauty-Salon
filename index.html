@@ -357,6 +357,20 @@ body {
 #contact p, #contact h2, #contact h3 {
   text-align: center;
 }
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+  }
+}
     
   </style>
 </head>
@@ -382,7 +396,7 @@ body {
       </ul>
     </nav>
 
-    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+   <button class="menu-toggle" aria-label="Toggle side panel" onclick="openPanel()">☰</button>
   </header>
 
   <main>

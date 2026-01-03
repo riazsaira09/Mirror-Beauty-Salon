@@ -4,19 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.querySelector(".close-menu");
   const panelLinks = document.querySelectorAll("#sidePanel a");
 
+  // Mobile nav toggle
   if (toggle) {
     toggle.addEventListener("click", () => {
       navMenu.classList.add("show");
     });
   }
-
   if (closeBtn) {
     closeBtn.addEventListener("click", () => {
       navMenu.classList.remove("show");
     });
   }
 
-  // Close panel when a link inside it is clicked
+  // Close side panel when a link is clicked
   panelLinks.forEach(link => {
     link.addEventListener("click", () => {
       closePanel();
