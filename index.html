@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mirror Boutique & Beauty Salon — affordable luxury beauty services: lashes, facials, threading, henna, waxing, alterations and Indian clothing.">
+  <title>Mirror Boutique & Beauty Salon</title>
+
+  <script src="script.js" defer></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Georama:ital,wght@0,300..900;1,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+  <style>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      font-family: 'Playfair Display', serif;
+      background-color: #f5f5dc;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+      color: #000;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #be1ad7;
+    }
+
+    .hero {
+      background-image: url('background-salon.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      color: white;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      font-family: 'Quicksand', sans-serif;
+      color: white;
+    }
+
+    .btn {
+      background-color: #986944;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #fd0e0e;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #000000;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #000000;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    h3 {
+      font-size: 24px;
+      color: #000000;
+      text-align: center;
+    }
+
+    p {
+      font-size: 20px;
+      color: #333333;
+      line-height: 1.6;
+      margin: 20px;
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+    }
+
+    .service-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .container {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 992px) {
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      .services {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      .hero h2 {
+        font-size: 32px;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    width: 250px;
+    background: #f5f5dc;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 60px;
+    transition: right 0.3s ease;
+    margin: 0;
+    z-index: 1000;
+  }
+
+  nav ul.show {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 1001;
+  }
+
+  nav ul li {
+    margin: 20px 0;
+  }
+}
+.close-menu {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  z-index: 1002;
+}
+
+@media (max-width: 768px) {
+  .close-menu {
+    display: block;
+  }
+}
+
+#about h3 {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #986944; /* accent color */
+  text-align: center;
+}
+
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mirror Boutique & Beauty Salon</h1>
+    <nav aria-label="Main navigation">
+      <button class="close-menu" aria-label="Close navigation">✖</button>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero" aria-label="Hero">
+      <div class="hero-content">
+        <h2>Discover Your True Beauty</h2>
+        <p>Luxury treatments, boutique products, and a touch of elegance.</p>
+        <a href="#contact" class="btn">Book Now</a>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>Our Services</h2>
+      <p>Mirror Boutique & Beauty Salon is a small business that provides beauty services. Our aim is to provide professional services with affordable prices. We offer a wide range of services from facials, henna, massages, eyelash extensions and more. We believe every woman has the right to look beautiful and we're here to make sure you get it.</p>
+
+      <section id="services" class="services" aria-label="Services list">
+        <div class="service-card">
+          <img src="eyelash-extention2.jpg" alt="Eyelash extensions example">
+          <h3>Eyelash Extensions</h3>
+          <p>Enhance your natural beauty with luxurious eyelash extensions, applied with love and precision.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="Threading.webp" alt="Threading example">
+          <h3>Threading & Tinting Services</h3>
+          <p>Get smooth, flawless skin with our expert threading, waxing, and tinting services.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="facial.jpg" alt="Facial treatment">
+          <h3>Facials</h3>
+          <p>Indulge in a little luxury with our signature facials, expertly crafted to nourish and revitalize your skin.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="heena.jpg" alt="Henna design">
+          <h3>Henna Tattoos</h3>
+          <p>Beautiful henna designs for any occasion — let your hands tell a story of elegance and charm.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="eyebrow-waxing.jpg" alt="Eyebrow waxing">
+          <h3>Waxing Services</h3>
+          <p>Say goodbye to unwanted hair and hello to confidence with our gentle and effective waxing services.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="alteration.jpg" alt="Clothing alteration">
+          <h3>Alteration Services</h3>
+          <p>Perfect-fitting garments with our expert alteration services — from hemming to tailoring, we make your clothes feel custom-made.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="clothing.jpg" alt="Indian clothing">
+          <h3>Indian Clothing</h3>
+          <p>Browse our exclusive collection of traditional Indian wear, from elegant sarees to vibrant kurtis.</p>
+        </div>
+      </section>
+    </section>
+
+    <section id="about" class="container" aria-label="About us">
+  <h2>About Us</h2>
+  <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:30px;padding:20px;max-width:1200px;margin:0 auto;">
+    
+    <!-- Photo -->
+    <img src="facial3.jpg" alt="Facials" style="flex:1;border-radius:10px;max-width:400px;">
+    
+    <!-- Text block -->
+    <div style="flex:2;">
+      <!-- Intro text -->
+      <p>
+        Welcome to Mirror Boutique & Beauty Salon. We’re a small, women‑focused boutique run by a single proprietor. 
+        Our services include henna art, Indian clothing, and custom tailoring. All appointments are handled personally, 
+        and we serve women and girls exclusively.
+      </p>
+<!-- Our Promise -->
+      <h3 style="color:#000;margin-top:25px;">Our Promise</h3>
+      <p><em>Beauty meets affordability.</em><br>
+        From lashes, waxing, facials to beautiful henna designs, every service is priced to be kind to your wallet 
+        while delivering the quality you deserve.
+      </p>
+
+      <p>
+        We look forward to helping you look and feel your best.<br>
+        <em>Come relax, unwind, and experience exceptional quality and care in a warm, welcoming environment.</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+    <section id="menu" class="container" aria-label="Menu">
+      <h2>The Menu</h2>
+      <p>Looking for something specific? Here is the rundown of all our services and prices. Please contact us for more details.</p>
+      <img src="menu.jpg" alt="Service menu" style="display:block;margin:0 auto;max-width:600px;border-radius:10px;">
+    </section>
+
+    <section id="contact" class="container" style="text-align:center;padding:40px;" aria-label="Contact">
+  <h2>Contact Us</h2>
+
+  <!-- Opening Hours -->
+  <div style="margin:30px 0;">
+    <h3>Opening Hours</h3>
+    <p>Monday – Thursday: 9:00 AM – 6:00 PM</p>
+    <p>Friday: 9:00 AM – 12:00 PM; 3:30 PM – 6:00 PM</p>
+    <p>Saturday: 9:00 AM – 6:00 PM</p>
+    <p>Sunday: 9:00 AM – 2:00 PM</p>
+  </div>
+
+  <!-- Booking Info -->
+  <div style="margin:30px 0;">
+    <p>Ready to enhance your beauty? Book your appointment today!</p>
+    <p><strong>Email:</strong> mirrorbeautysalon@gmail.com</p>
+    <p><strong>WhatsApp / Phone:</strong> 0812185243</p>
+    <a href="https://wa.me/27812185243" class="btn" target="_blank" rel="noopener">Book Now</a>
+  </div>
+
+  <!-- Note -->
+  <div style="margin-top:40px;font-size:16px;color:#555;">
+    <p><em>Please note:</em> This is a modest operation, not a large‑scale studio, and we use straightforward equipment 
+    to keep things personal and efficient. Thank you for supporting an independent, women‑run business.</p>
+  </div>
+</section>
+  </main>
+</body>
+</html>
